@@ -1,0 +1,10 @@
+<div class="pane">
+  <div class="nav" role="group">
+    @for(tab of tabs(); track tab) {
+    <button [class.secondary]="tab !== currentTab()" (click)="currentChange.emit($index)">{{tab.title()}}</button>
+    }
+  </div>
+  <article>
+    <ng-content></ng-content>
+  </article>
+</div>
