@@ -8,4 +8,11 @@ export const routes: Routes = [
         (t) => t.TabbedPaneDemoComponent
       ),
   },
+  {
+    path: 'form-demo',
+    loadComponent: () =>
+      import('./demo/form-demo/form-demo.component').then(
+        (f) => f.FormDemoComponent
+      ),
+  },
 ];
