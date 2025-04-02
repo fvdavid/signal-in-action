@@ -15,4 +15,11 @@ export const routes: Routes = [
         (f) => f.FormDemoComponent
       ),
   },
+  {
+    path: 'toast-demo',
+    loadComponent: () =>
+      import('./demo/toast-demo/toast-demo.component').then(
+        (t) => t.ToastDemoComponent
+      ),
+  },
 ];
