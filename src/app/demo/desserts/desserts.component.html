@@ -1,0 +1,45 @@
+<form>
+  <div class="card-grid p-20">
+    <div>
+      <label for="originalName">Original Name</label>
+      <!-- <input [(ngModel)]="originalName" name="originalName" type="text" /> -->
+      <input [(ngModel)]="originalName" name="originalName"
+        class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="originalName" type="text" placeholder="originalName">
+    </div>
+    <div>
+      <label for="englishName">English Name</label>
+      <!-- <input [(ngModel)]="englishName" name="englishName" /> -->
+      <input [(ngModel)]="englishName" name="englishName"
+        class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="englishName" type="text" placeholder="englishName">
+
+    </div>
+  </div>
+  <div class="mt-10 mb-10">
+    <!-- <button type="button" (click)="loadRatings()" class="btn ml-2" [disabled]="loading()">
+      Expert Ratings
+    </button> -->
+
+    <button (click)="loadRatings()" [disabled]="loading()"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Expert Ratings
+    </button>
+
+    @if (loading()) {
+    <div class="loader"></div>
+    }
+  </div>
+</form>
+
+<div class="card-grid">
+  @for (dessert of ratedDesserts(); track dessert.id) {
+    <app-dessert-card
+      [dessert]="dessert"
+      (ratingChange)="updateRating(dessert.id, $event)"
+    ></app-dessert-card>
+  }
+  @if (ratedDesserts().length === 0 && !loading()) {
+    <p class="text-lg">Sorry, no desserts found.</p>
+  }
+</div>

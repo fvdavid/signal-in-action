@@ -22,4 +22,11 @@ export const routes: Routes = [
         (t) => t.ToastDemoComponent
       ),
   },
+  {
+    path: 'dessert-demo',
+    loadComponent: () =>
+      import('./demo/desserts/desserts.component').then(
+        (d) => d.DessertsComponent
+      ),
+  },
 ];
