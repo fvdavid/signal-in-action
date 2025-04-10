@@ -29,4 +29,9 @@ export const routes: Routes = [
         (d) => d.DessertsComponent
       ),
   },
+  {
+    path: 'streaming-resource-demo',
+    loadChildren: () =>
+      import('./demo/streaming-resource-demo/streaming-resource.routes'),
+  },
 ];
