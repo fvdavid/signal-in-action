@@ -20,4 +20,9 @@ export default [
         (tx) => tx.TimerRxResourceComponent
       ),
   },
+  {
+    path: 'chat',
+    loadComponent: () =>
+      import('./chat/chat.component').then((c) => c.ChatComponent),
+  },
 ] as Routes;
